@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gpstool.FXMLDocumentController">
+    <children>
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="menuLoad" mnemonicParsing="false" text="Load Project" />
+                  <MenuItem fx:id="menuSave" mnemonicParsing="false" text="Save Project" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuImport" mnemonicParsing="false" text="Import" />
+              <MenuItem fx:id="menuClose" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="View">
+               <items>
+                  <CheckMenuItem fx:id="menuMap" mnemonicParsing="false" selected="true" text="Map" />
+                  <CheckMenuItem fx:id="menuSat" mnemonicParsing="false" text="Satellite" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Tools">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Settings" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+        <tabs>
+            <Tab text="Visualization">
+               <content>
+                  <SplitPane dividerPositions="0.75" prefHeight="200.0" prefWidth="200.0">
+                     <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="527.0" prefWidth="492.0">
+                           <children>
+                              <BorderPane fx:id="mapBp" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="-Infinity" prefHeight="140.0" prefWidth="194.0">
+                                       <children>
+                                          <ListView fx:id="fileList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="-Infinity" prefHeight="268.0" prefWidth="200.0">
+                                       <children>
+                                          <Accordion minHeight="-Infinity" prefHeight="428.0" prefWidth="194.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <panes>
+                                              <TitledPane animated="false" text="Properties">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Label text="Dataset:" />
+                                                                  <Label fx:id="laPropDesc" text="Label" />
+                                                                  <Separator prefWidth="200.0">
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" top="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Separator>
+                                                                  <Label fx:id="laStartSlider" text="Start:" />
+                                                                  <Slider fx:id="minSetSlider" disable="true" />
+                                                                  <Label fx:id="laEndSlider" text="End:" />
+                                                                  <Slider fx:id="maxSetSlider" disable="true" value="100.0" />
+                                                                  <Separator prefWidth="200.0">
+                                                                     <padding>
+                                                                        <Insets top="10.0" />
+                                                                     </padding>
+                                                                  </Separator>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                </content>
+                                              </TitledPane>
+                                              <TitledPane animated="false" text="Animation">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                </content>
+                                              </TitledPane>
+                                            </panes>
+                                          </Accordion>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+    </children>
+</AnchorPane>
